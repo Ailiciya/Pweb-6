@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kombinasi Kalkulator dan Pesan Selamat</title>
+</head>
+<body>
+    <p>Rabu 24, Apr 2024</p>
+    <h2>Hello World!</h2>
+
+    <hr>
+
+    <button onclick="myFunction()">Tertekan</button>
+
+    <p id="demo"></p>
+
+    <script>
+        function myFunction() {
+            let text;
+            let person = prompt("Mohon ketik nama kamu di bawah ini:");
+            if (person == null || person == "") {
+                text = "Kamu membatalkan commandnya (っ °Д °;)っ.";
+            } else {
+                text = "Hello " + person + "! Sang pendekar kegelapan";
+            }
+            document.getElementById("demo").innerHTML = text;
+        }
+    </script>
+
+    <hr>
+    <button >Selamat Pagi!</button>
+
+    <div id="calculator">
+        <h2>Kalkulator Sederhana</h2>
+        <label for="angka1">Angka 1:</label>
+        <input id="angka1" style="margin-bottom: 5px;">
+        <br>
+        <label for="operator">Operator:</label>
+        <select id="operator" style="margin-bottom: 5px;">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <br>
+        <label for="angka2">Angka 2:</label>
+        <input id="angka2" style="margin-bottom: 5px;">
+        <br>
+        <button onclick="hitung()">Hitung</button>
+        <br>
+        <label for="result">Hasil:</label>
+        <input id="result" readonly style="margin-top: 5px;">
+    </div>
+
+    <script>
+        function hitung() {
+            var angka1 = parseFloat(document.getElementById('angka1').value);
+            var angka2 = parseFloat(document.getElementById('angka2').value);
+            var operator = document.getElementById('operator').value;
+            var hasil;
+
+            switch(operator) {
+                case '+':
+                    hasil = angka1 + angka2;
+                    break;
+                case '-':
+                    hasil = angka1 - angka2;
+                    break;
+                case '*':
+                    hasil = angka1 * angka2;
+                    break;
+                case '/':
+                    if(angka2 != 0) {
+                        hasil = angka1 / angka2;
+                    } else {
+                        hasil = 'Tidak bisa dibagi dengan 0';
+                    }
+                    break;
+                default:
+                    hasil = 'Operator tidak valid';
+            }
+
+            document.getElementById('result').value = hasil;
+        }
+    </script>
+</body>
+</html>
